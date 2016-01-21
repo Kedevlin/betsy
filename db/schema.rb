@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214235744) do
+ActiveRecord::Schema.define(version: 20160121192102) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -88,8 +88,13 @@ ActiveRecord::Schema.define(version: 20151214235744) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "street"
+    t.string   "state"
+    t.string   "city"
+    t.string   "country",         default: "US"
+    t.string   "postal_code"
   end
 
 end
