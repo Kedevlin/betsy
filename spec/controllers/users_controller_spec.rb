@@ -55,7 +55,11 @@ RSpec.describe UsersController, type: :controller do
           username: "Nemo1",
           email: "nemo@gmail.com",
           password: "123",
-          password_confirmation: "123"
+          password_confirmation: "123",
+          state: "WA",
+          city: "Seattle",
+          country: "US",
+          postal_code: "98144"
         }
       }
     end
@@ -66,7 +70,11 @@ RSpec.describe UsersController, type: :controller do
          username: "",
          email: "nemo@gmail.com",
          password: "1223",
-         password_confirmation: "123"
+         password_confirmation: "123",
+         state: "WA",
+         city: "Seattle",
+         country: "US",
+         postal_code: "98144"
        }
       }
     end
