@@ -22,7 +22,7 @@
 <!-- API call is successful -->
   <% ShippingEstimate.for(@order, @order_items).each do |shipping_provider, estimates| %>
   <% estimates.each do |shipping_type, estimate| %>
-    <%= f.radio_button :shipping_cost, estimate %><%= "    #{shipping_type}: #{number_to_currency(estimate/100)}" %>
+    <%= f.radio_button :shipping_cost, estimate, :required => true %><%= "    #{shipping_type}: #{dollar_price(estimate)}" %>
     <br>
   <% end %>
 <% end %>
