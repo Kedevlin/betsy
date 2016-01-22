@@ -1,9 +1,10 @@
 class ShippingEstimate
   def self.for order, order_items
     # setup the results hash first
-    result = {"UPS 3Day" => 0, "USPS 2Day" => 0}
+    # result = {"UPS 3Day" => 0, "USPS 2Day" => 0}
+
     # from order get destination address info
-    destination = [order.country, order.state, order.city, order.postal_code]
+    destination => {:country => order.country, :state => order.state, :city => order.city, :postal_code => order.postal_code}
 
     # for each user/merchant, make packages
     packages = []
@@ -20,12 +21,14 @@ class ShippingEstimate
       packages << [origin, package_items]
     end
 
-    #do HTTParty requests and add the estimate to results
     # send HTTParty request to api with above info
-        # result/estimated_cost = HTTParty.get.....
-    # update the result hash with data recieved from http party / api
-        ## result["UPS 3Day"/type] += estimated_cost[ups type]
 
-    return result = {"UPS 3Day" => 0, "USPS 2Day" => 1}
+    result = HTTParty.get('shippingendpoint.com/something.json',
+    body: {params here}.to_json)
+
+    # update the result hash with data recieved from http party / api
+    ## result["UPS 3Day"/type] += estimated_cost[ups type]
+
+    return result #= {"UPS 3Day" => 0, "USPS 2Day" => 1}
   end
 end
