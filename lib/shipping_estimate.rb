@@ -15,7 +15,7 @@ class ShippingEstimate
       # from oitems products get all info for quantity/dimensions
       package_items = []
       oitems.each do |oi|
-        p_item = [oi.product.weight, oi.product.height, oi.product.length, oi.product.width]
+        p_item = {:weight => oi.product.weight, :height => oi.product.height, :length => oi.product.length, :width => oi.product.width}
         package_items << p_item
       end
       packages << [origin, package_items]
