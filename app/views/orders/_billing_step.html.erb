@@ -20,7 +20,7 @@
 <br>
 <% ShippingEstimate.for(@order, @order_items).each do |shipping_type, estimate| %>
   <!-- have the values of the radio button be the estimate -->
-  <%= f.radio_button :shipping_cost, shipping_type %><%= "    #{shipping_type}: #{number_to_currency(estimate)}" %>
+  <%= f.radio_button :shipping_cost, estimate %><%= "    #{shipping_type}: #{number_to_currency(estimate)}" %>
   <br>
 <% end %>
 </div>
