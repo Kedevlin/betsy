@@ -11,7 +11,7 @@ class ShippingEstimate
     order_items.group_by { |oi| oi.product.user }.each do |user, oitems|
     # user is the merchant & oitems are all order items from that merchant/user
       # from user/merchant get origin address info
-      origin = [user.city, user.state, user.country, user.postal_code]
+      origin => {:country => user.country, :state => user.state, :city => user.city, :postal_code => user.postal_code}
       # from oitems products get all info for quantity/dimensions
       package_items = []
       oitems.each do |oi|
@@ -24,7 +24,7 @@ class ShippingEstimate
     # send HTTParty request to api with above info
 
     result = HTTParty.get('shippingendpoint.com/something.json',
-    body: {params here}.to_json)
+    body: {:destination => destination}.to_json)
 
     # update the result hash with data recieved from http party / api
     ## result["UPS 3Day"/type] += estimated_cost[ups type]
