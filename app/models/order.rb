@@ -6,6 +6,7 @@ class Order < ActiveRecord::Base
   validates_length_of :zip, is: 5, allow_nil: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, allow_nil: true
   attr_writer :current_step
+  STEPS = %w[shipping billing]
 
   def total_cost(user = nil)
     total = 0
@@ -59,7 +60,7 @@ class Order < ActiveRecord::Base
   end
 
   def steps
-    %w[shipping billing]
+    STEPS
   end
 
   def next_step
