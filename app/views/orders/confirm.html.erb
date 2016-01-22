@@ -20,8 +20,16 @@
   </table>
 </p>
 <p>
-  <strong>Order Total:</strong>
+  Product Total:
   <%= dollar_price(@total) %>
+</p>
+<p>
+  Shipping Total:
+  <%= dollar_price(@order.shipping_cost) %>
+</p>
+<p>
+  <strong>Order Total:</strong>
+  <%= dollar_price(@total + @order.shipping_cost) %>
 </p>
 <p>
   <strong>Purchased:</strong>
