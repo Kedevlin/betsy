@@ -18,9 +18,17 @@
 <div class="field">
 <%= f.label :shipping_cost, "Please Choose a Shipping Option:" %>
 <br>
-<% ShippingEstimate.for(@order, @order_items).each do |shipping_type, estimate| %>
-  <!-- have the values of the radio button be the estimate -->
-  <%= f.radio_button :shipping_cost, estimate %><%= "    #{shipping_type}: #{number_to_currency(estimate)}" %>
-  <br>
+<% if ShippingEstimate.for(@order, @order_items) != nil %>
+<!-- API call is successful -->
+  <% ShippingEstimate.for(@order, @order_items).each do |shipping_provider, estimates| %>
+  <% estimates.each do |shipping_type, estimate| %>
+    <%= f.radio_button :shipping_cost, estimate %><%= "    #{shipping_type}: #{number_to_currency(estimate/100)}" %>
+    <br>
+  <% end %>
+<% end %>
+<% else %>
+<!-- API call Unsuccessful -->
+ Sorry, Shipping Estimates unavailable for this destination. <br>
+ Please go back and enter a valid address.
 <% end %>
 </div>
