@@ -13,6 +13,6 @@ class ShippingEstimate
       # update the result hash with data recieved from http party / api
           # result["UPS 3Day"] += estimated_cost
     end
-    return result = {"UPS 3Day" => 0, "USPS 2Day" => 0}
+    return result = {"UPS 3Day" => 0, "USPS 2Day" => 1}
   end
 end

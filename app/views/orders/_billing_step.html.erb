@@ -15,7 +15,10 @@
   <%= f.label :cc_cvv, "Credit Card CVV" %><br>
   <%= f.number_field :cc_cvv, class: 'form-control', :required => true  %>
 </div>
+<div class="field">
+<%= f.label "Shipping" %>
 <% ShippingEstimate.for(@order, @order_items).each do |shipping_type, estimate| %>
   <!-- have the values of the radio button be the estimate -->
-  <%= f.radio_button :cc_cvv, "#{shipping_type}: #{estimate}" %>
+  <%= f.radio_button :cc_cvv, shipping_type, class: 'form-control' %><%= "#{shipping_type}: #{number_to_currency(estimate)}" %>
 <% end %>
+</div>
