@@ -42,35 +42,32 @@ class OrdersController < ApplicationController
     session[:order_params].deep_merge!(order_params) if order_params
     @order = Order.new(session[:order_params])
     @order.current_step = session[:order_step]
-    if params[:back_button]
-      @order.previous_step
-    elsif @order.last_step?
-      @order.save
-    else
-      @order.next_step
+    if @order.valid?
+      if params[:back_button]
+        @order.previous_step
+      elsif @order.last_step?
+        @order.save if @order.all_valid?
+      else
+        @order.next_step
+      end
+      session[:order_step] = @order.current_step
     end
-    session[:order_step] = @order.current_step
     if @order.new_record?
       render :new
     else
       #Order saved
+      products_sold = []
+      @order_items.each do |oi|
+        @order.order_items << oi
+        products_sold.push([oi.product, oi.quantity])
+        oi.save
+      end
       session[:order_step] = session[:order_params] = nil
+      Product.decrement_stock(products_sold)
+      session[:cart] = nil
+      session[:order_id] = @order.id
       redirect_to confirmation_path
     end
-    # products_sold = []
-    # @order_items.each do |oi|
-    #   @order.order_items << oi
-    #   products_sold.push([oi.product, oi.quantity])
-    #   oi.save
-    # end
-    # if @order.save
-    #   Product.decrement_stock(products_sold)
-    #   session[:cart] = nil
-    #   session[:order_id] = @order.id
-    #   redirect_to confirmation_path
-    # else
-      # render :new
-    # end
   end
 
   def confirm
