@@ -1,11 +1,11 @@
-email,street,city,state,zip,cc_num,cc_exp,cc_cvv,cc_name,name,shipping_cost
-user1@example.com,1215 4th Ave,Seattle,WA,98161,12345678,,360,User One,User One,2.0
-user2@example.com,1216 4th Ave,Seattle,WA,98161,12345679,,139,User Two,User Two,3.0
-user3@example.com,1217 4th Ave,Seattle,WA,98161,12345680,,275,User Three,User Three,4.0
-user4@example.com,1218 4th Ave,Seattle,WA,98161,12345681,,842,User Four,User Four,5.0
-user5@example.com,1219 4th Ave,Seattle,WA,98161,12345682,,119,User Five,User Five,2.5
-user6@example.com,1220 4th Ave,Seattle,WA,98161,12345683,,600,User Six,User Six,2.0
-user7@example.com,1221 4th Ave,Seattle,WA,98161,12345684,,858,User Seven,User Seven,2.0
-user8@example.com,1222 4th Ave,Seattle,WA,98161,12345685,,858,User Eight,User Eight,2.0
-user9@example.com,1223 4th Ave,Seattle,WA,98161,12345686,,844,User Nine,User Nine,2.0
-user10@example.com,1224 4th Ave,Seattle,WA,98161,12345687,,930,User Ten,User Ten,2.0
+email,street,city,state,zip,cc_num,cc_exp,cc_cvv,cc_name,name,shipping_cost,country
+user1@example.com,1215 4th Ave,Seattle,WA,98161,12345678,,360,User One,User One,2.0,US
+user2@example.com,1216 4th Ave,Seattle,WA,98161,12345679,,139,User Two,User Two,3.0,US
+user3@example.com,1217 4th Ave,Seattle,WA,98161,12345680,,275,User Three,User Three,4.0,US
+user4@example.com,1218 4th Ave,Seattle,WA,98161,12345681,,842,User Four,User Four,5.0,US
+user5@example.com,1219 4th Ave,Seattle,WA,98161,12345682,,119,User Five,User Five,2.5,US
+user6@example.com,1220 4th Ave,Seattle,WA,98161,12345683,,600,User Six,User Six,2.0,US
+user7@example.com,1221 4th Ave,Seattle,WA,98161,12345684,,858,User Seven,User Seven,2.0,US
+user8@example.com,1222 4th Ave,Seattle,WA,98161,12345685,,858,User Eight,User Eight,2.0,US
+user9@example.com,1223 4th Ave,Seattle,WA,98161,12345686,,844,User Nine,User Nine,2.0,US
+user10@example.com,1224 4th Ave,Seattle,WA,98161,12345687,,930,User Ten,User Ten,2.0,US
