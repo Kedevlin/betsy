@@ -27,6 +27,6 @@ class ShippingEstimate
     # body: {:destination => destination}.to_json,
     # format::json).parsed_response
 
-    return result #= {"UPS 3Day" => 0, "USPS 2Day" => 1}
+    return result = {"UPS 3Day" => 0, "USPS 2Day" => 1}
   end
 end
