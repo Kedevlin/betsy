@@ -18,15 +18,18 @@ class ShippingEstimate
           package_items << p_item
         end
       end
-      packages << [origin, package_items]
+      packages << {:origin => origin, :package_items => package_items}
     end
 
     # send HTTParty request to api with above info
 
-    # pre_result = HTTParty.get('shippingendpoint.com/something.json',
-    # body: {:destination => destination}.to_json,
-    # format::json).parsed_response
-
-    return result = {"UPS 3Day" => 0, "USPS 2Day" => 1}
+    response = HTTParty.get('http://localhost:3000/quote',
+        query: {:shipping_params => {
+              :destination => destination,
+              :packages => packages
+            }
+          })
+    result = response.parsed_response
+    return result #= {"UPS 3Day" => 0, "USPS 2Day" => 1}
   end
 end
