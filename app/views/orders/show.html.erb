@@ -9,7 +9,7 @@
       </tr>
       <tr>
         <td><strong>Name:</strong></td>
-        <td><%= @order.cc_name %></td>
+        <td><%= @order.name %></td>
       </tr>
       <tr>
         <td><strong>Email:</strong></td>
@@ -23,6 +23,10 @@
         </td>
       </tr>
       <tr>
+        <tr>
+          <td><strong>Name on Credit Card:</strong></td>
+          <td><%= @order.cc_name %></td>
+        </tr>
         <td><strong>Credit Card:</strong></td>
         <td><% if @order.cc_num.length <= 4 %>
           <%= @order.cc_num %>
