@@ -1,7 +1,5 @@
 class ShippingEstimate
   def self.for order, order_items
-    # setup the results hash first
-    # result = {"UPS 3Day" => 0, "USPS 2Day" => 0}
 
     # from order get destination address info
     destination = {:country => order.country, :state => order.state, :city => order.city, :postal_code => order.zip}
@@ -28,9 +26,6 @@ class ShippingEstimate
     # pre_result = HTTParty.get('shippingendpoint.com/something.json',
     # body: {:destination => destination}.to_json,
     # format::json).parsed_response
-
-    # update the result hash with data recieved from http party / api
-    ## result["UPS 3Day"/type] += estimated_cost[ups type]
 
     return result #= {"UPS 3Day" => 0, "USPS 2Day" => 1}
   end
