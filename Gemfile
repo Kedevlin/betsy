@@ -33,6 +33,8 @@ gem 'will_paginate'
 
 gem "font-awesome-rails"
 
+gem 'httparty'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
