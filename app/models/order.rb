@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
   validates :email, :street, :city, :state, :zip, :cc_num, :cc_exp, :cc_cvv, :cc_name, presence: true
   validates_length_of :zip, is: 5, allow_nil: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, allow_nil: true
+  attr_writer :current_step
 
   def total_cost(user = nil)
     total = 0
@@ -51,4 +52,13 @@ class Order < ActiveRecord::Base
     end
     return filtered_orders
   end
+
+  def current_step
+    @current_step || steps.first
+  end
+
+  def steps
+    %w[shipping billing]
+  end
+
 end

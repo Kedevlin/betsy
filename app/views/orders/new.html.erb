@@ -13,7 +13,7 @@
         </div>
       <% end %>
 
-      <%= render :partial => "#{@order.current_step}_step" %>
+      <%= render "#{@order.current_step}_step", :f => f %>
 
       <br>
       <div class="actions">
