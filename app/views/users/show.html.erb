@@ -15,6 +15,26 @@
         <td><strong>Name:</strong></td>
         <td><%= @user.name %></td>
       </tr>
+      <tr>
+        <td><strong>Street:</strong></td>
+        <td><%= @user.street %></td>
+      </tr>
+      <tr>
+        <td><strong>City:</strong></td>
+        <td><%= @user.city %></td>
+      </tr>
+      <tr>
+        <td><strong>State:</strong></td>
+        <td><%= @user.state %></td>
+      </tr>
+      <tr>
+        <td><strong>Country:</strong></td>
+        <td><%= @user.country %></td>
+      </tr>
+      <tr>
+        <td><strong>Postal Code:</strong></td>
+        <td><%= @user.postal_code %></td>
+      </tr>
     </table>
     <div class="text-center">
       <%= link_to 'Edit My Profile', edit_user_path(@user) %>

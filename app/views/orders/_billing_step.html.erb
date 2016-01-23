@@ -1,0 +1,34 @@
+<h3>Payment Details</h3>
+<div class="field">
+  <%= f.label :cc_name, "Name on Credit Card" %><br>
+  <%= f.text_field :cc_name, class: 'form-control', :required => true  %>
+</div>
+<div class="field">
+  <%= f.label :cc_num, "Credit Card Number" %><br>
+  <%= f.text_field :cc_num, class: 'form-control', :required => true  %>
+</div>
+<div class="field">
+  <%= f.label :cc_exp, "Credit Card Expiration Date" %><br>
+  <%= f.date_select :cc_exp, class: 'form-control', :required => true  %>
+</div>
+<div class="field">
+  <%= f.label :cc_cvv, "Credit Card CVV" %><br>
+  <%= f.number_field :cc_cvv, class: 'form-control', :required => true  %>
+</div>
+<div class="field">
+<%= f.label :shipping_cost, "Please Choose a Shipping Option:" %>
+<br>
+<% if ShippingEstimate.for(@order, @order_items) != nil %>
+<!-- API call is successful -->
+  <% ShippingEstimate.for(@order, @order_items).each do |shipping_provider, estimates| %>
+  <% estimates.each do |shipping_type, estimate| %>
+    <%= f.radio_button :shipping_cost, estimate, :required => true %><%= "    #{shipping_type}: #{dollar_price(estimate)}" %>
+    <br>
+  <% end %>
+<% end %>
+<% else %>
+<!-- API call Unsuccessful -->
+ Sorry, Shipping Estimates unavailable for this destination. <br>
+ Please go back and enter a valid address.
+<% end %>
+</div>

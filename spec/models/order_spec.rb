@@ -5,8 +5,8 @@ RSpec.describe Order, type: :model do
     {street: "test" , city: "Seattle", state: "WA", zip: "98116", cc_num: "12345678", cc_cvv: "123", cc_name: "Kelly", cc_exp: "20151215"}
   }
 
-  let (:user_1) { User.create(email: 'nemo@foo.com', name: "Bob", username: "bobi", password: "333", password_confirmation: "333") }
-  let (:user_2) { User.create(email: 'nemo1@foo.com', name: "Bob1", username: "bobi1", password: "333", password_confirmation: "333") }
+  let (:user_1) { User.create(email: 'nemo@foo.com', name: "Bob", username: "bobi", password: "333", password_confirmation: "333", state: "WA", city: "Seattle", country: "US", postal_code: "98144") }
+  let (:user_2) { User.create(email: 'nemo1@foo.com', name: "Bob1", username: "bobi1", password: "333", password_confirmation: "333", state: "WA", city: "Seattle", country: "US", postal_code: "98144") }
   let (:product_1) { Product.create(name: "Sample", price: 10, stock: 5, user_id: user_1.id) }
   let (:product_2) { Product.create(name: "Sample1", price: 15, stock: 5, user_id: user_2.id) }
   let (:order_item_1) { OrderItem.create(product_id: product_1.id, quantity: 3, shipped: false) }
@@ -21,10 +21,6 @@ RSpec.describe Order, type: :model do
     it { is_expected.to validate_presence_of(:city) }
     it { is_expected.to validate_presence_of(:state) }
     it { is_expected.to validate_presence_of(:zip) }
-    it { is_expected.to validate_presence_of(:cc_num) }
-    it { is_expected.to validate_presence_of(:cc_exp) }
-    it { is_expected.to validate_presence_of(:cc_cvv) }
-    it { is_expected.to validate_presence_of(:cc_name) }
 
     it "must have a valid email " do
       expect(Order.create(good_params.merge(email: "user_at_foo.org"))).to_not be_valid
@@ -34,6 +30,20 @@ RSpec.describe Order, type: :model do
       expect(Order.create(good_params.merge(email: " "))).to_not be_valid
       expect(Order.create(good_params.merge(email: "kelly@kelly.com"))).to be_valid
     end
+  end
+
+  describe ".validates second step" do
+    subject do
+      o = Order.new
+      o.current_step = "billing"
+      o
+    end
+
+    it { is_expected.to validate_presence_of(:cc_num) }
+    it { is_expected.to validate_presence_of(:cc_exp) }
+    it { is_expected.to validate_presence_of(:cc_cvv) }
+    it { is_expected.to validate_presence_of(:cc_name) }
+
   end
 
   describe "#total_cost" do

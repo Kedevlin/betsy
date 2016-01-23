@@ -1,0 +1,29 @@
+<h3>Shipping Details</h3>
+<div class="field">
+  <%= f.label :name, "Name" %><br>
+  <%= f.text_field :name, class: 'form-control'  %>
+</div>
+<div class="field">
+  <%= f.label :email %><br>
+  <%= f.text_field :email, class: 'form-control', :required => true  %>
+</div>
+<div class="field">
+  <%= f.label :street %><br>
+  <%= f.text_field :street, class: 'form-control', :required => true  %>
+</div>
+<div class="field">
+  <%= f.label :city %><br>
+  <%= f.text_field :city, class: 'form-control', :required => true  %>
+</div>
+<div class="field">
+  <%= f.label :state, "State (As abbreviation, ex: CA)" %><br>
+  <%= f.text_field :state, class: 'form-control', :required => true %>
+</div>
+<div class="field">
+  <%= f.label :country %><br>
+  <%= f.text_field :country, class: 'form-control', :required => true, :placeholder => "US"   %>
+</div>
+<div class="field">
+  <%= f.label :zip %><br>
+  <%= f.text_field :zip, class: 'form-control', :required => true  %>
+</div>

@@ -20,9 +20,19 @@
   </table>
 </p>
 <p>
-  <strong>Order Total:</strong>
+  Product Total:
   <%= dollar_price(@total) %>
 </p>
+<% if !@order.shipping_cost.nil? %>
+  <p>
+    Shipping Total:
+    <%= dollar_price(@order.shipping_cost) %>
+  </p>
+  <p>
+    <strong>Order Total:</strong>
+    <%= dollar_price(@total + @order.shipping_cost) %>
+  </p>
+<% end %>
 <p>
   <strong>Purchased:</strong>
   <%= readable_date(@order.created_at.in_time_zone("Pacific Time (US & Canada)")) %> at <%= readable_time(@order.created_at.in_time_zone("Pacific Time (US & Canada)")) %>

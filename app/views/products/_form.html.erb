@@ -26,6 +26,18 @@
     <%= f.label :description %>
     <%= f.text_field :description, class: 'form-control' %>
 
+    <%= f.label :length, "Length (inches)" %>
+    <%= f.number_field :length, class: 'form-control', :required => true, :min => 0 %>
+
+    <%= f.label :width, "Width (inches)" %>
+    <%= f.number_field :width, class: 'form-control', :required => true, :min => 0 %>
+
+    <%= f.label :height, "Height (inches)" %>
+    <%= f.number_field :height, class: 'form-control', :required => true, :min => 0 %>
+
+    <%= f.label :weight, "Weight (ounces)" %>
+    <%= f.number_field :weight, class: 'form-control', :required => true, :min => 0 %>
+
     <div class="checkbox checkbox-inline">
       <%= f.check_box :active %>
       <%= f.label :active %>

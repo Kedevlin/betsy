@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   before_validation { self.email = email.downcase if self.email } # ensures emails are all lowercase
 
-  validates :username, :email, presence: true
+  validates :username, :email, :state, :city, :country, :postal_code, presence: true
   validates :username, :email, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 

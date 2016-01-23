@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214235744) do
+ActiveRecord::Schema.define(version: 20160122200550) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -54,9 +54,12 @@ ActiveRecord::Schema.define(version: 20151214235744) do
     t.date     "cc_exp"
     t.integer  "cc_cvv"
     t.string   "cc_name"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "status",     default: "paid"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "status",        default: "paid"
+    t.string   "name"
+    t.float    "shipping_cost"
+    t.string   "country",       default: "US"
   end
 
   create_table "products", force: :cascade do |t|
@@ -69,6 +72,10 @@ ActiveRecord::Schema.define(version: 20151214235744) do
     t.boolean  "active",      default: true
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "length"
+    t.integer  "width"
+    t.integer  "height"
+    t.float    "weight"
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id"
@@ -88,8 +95,13 @@ ActiveRecord::Schema.define(version: 20151214235744) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "street"
+    t.string   "state"
+    t.string   "city"
+    t.string   "country",         default: "US"
+    t.string   "postal_code"
   end
 
 end

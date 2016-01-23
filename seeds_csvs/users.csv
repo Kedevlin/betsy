@@ -1,11 +1,11 @@
-username,email,password,password_confirmation,name
-user1,user1@example.com,password,password,User One
-user2,user2@example.com,password,password,User Two
-user3,user3@example.com,password,password,User Three
-user4,user4@example.com,password,password,User Four
-user5,user5@example.com,password,password,User Five
-user6,user6@example.com,password,password,User Six
-user7,user7@example.com,password,password,User Seven
-user8,user8@example.com,password,password,User Eight
-user9,user9@example.com,password,password,User Nine
-user10,user10@example.com,password,password,User Ten
+username,email,password,password_confirmation,name,created_at,updated_at,street,state,city,country,postal_code
+user1,user1@example.com,password,password,User One,2013-11-07 12:34:56.000000,2013-11-08 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user2,user2@example.com,password,password,User Two,2013-11-06 12:34:56.000000,2013-11-08 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user3,user3@example.com,password,password,User Three,2013-11-07 12:34:56.000000,2013-11-10 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user4,user4@example.com,password,password,User Four,2013-11-07 12:34:56.000000,2013-11-08 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user5,user5@example.com,password,password,User Five,2013-11-05 12:34:56.000000,2013-11-09 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user6,user6@example.com,password,password,User Six,2013-11-05 12:34:56.000000,2013-11-09 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user7,user7@example.com,password,password,User Seven,2013-11-07 12:34:56.000000,2013-11-09 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user8,user8@example.com,password,password,User Eight,2013-11-07 12:34:56.000000,2013-11-09 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user9,user9@example.com,password,password,User Nine,2013-11-06 12:34:56.000000,2013-11-09 12:34:56.000000,123 Street,WA,Seattle,US,98144
+user10,user10@example.com,password,password,User Ten,2013-11-06 12:34:56.000000,2013-11-08 12:34:56.000000,123 Street,WA,Seattle,US,98144

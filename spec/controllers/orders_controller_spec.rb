@@ -52,12 +52,16 @@ RSpec.describe OrdersController, type: :controller do
     it "redirects to checkout confirmation page" do
       session[:cart] = { product.id => 2 }
       session[:user_id] = product.user.id
+      session[:order_params] = {}
+      session[:order_step] = Order::STEPS.last
       post :create, good_params
       expect(subject).to redirect_to confirmation_path
     end
 
     it "renders new template on error" do
       session[:cart] = { product.id => 2 }
+      session[:order_params] = {}
+      session[:order_step] = Order::STEPS.last
       post :create, bad_params
       expect(subject).to render_template :new
     end
